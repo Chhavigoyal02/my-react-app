@@ -3,8 +3,8 @@ import {useParams,Link} from 'react-router-dom';
 import {getProductData} from './api.js';
 import Loading from './Loading.jsx';
 import { GrPrevious, GrNext } from "react-icons/gr";
-import NotFound from './NotFound';
-import HomePageArrow from './HomePageArrow';
+import NotFound from './NotFound.jsx';
+import HomePageArrow from './HomePageArrow.jsx';
 
 function ProductDetail({onAddToCart}){
   const id=+(useParams().id);
