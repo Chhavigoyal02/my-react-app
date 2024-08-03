@@ -1,12 +1,12 @@
 import React,{ useState,useCallback } from 'react';
-import Navbar from './Navbar.jsx';
-import Footer from './Footer.jsx';
-import ProductDetail from './ProductDetail.jsx';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import ProductDetail from './ProductDetail';
 import ProductListPage from './ProductListPage.jsx';  
 import {Routes,Route} from 'react-router-dom';
-import NotFound from './NotFound.jsx';
-import LoginPage from './LoginPage.jsx';
-import SignUpPage from './SignUpPage.jsx';
+import NotFound from './NotFound';
+import LoginPage from './LoginPage';
+import SignUpPage from './SignUpPage';
 import CartPage from './CartPage.jsx';
 import ForgotPasswordPage from './ForgotPasswordPage.jsx';
 
@@ -33,7 +33,7 @@ function App() {
       <div className="grow">
         <Routes>
           <Route index element={<ProductListPage />}></Route>
-          <Route path="/Product/:id" element={<ProductDetail onAddToCart = {handleAddToCart} />}></Route>
+          <Route path="/products/:id" element={<ProductDetail onAddToCart = {handleAddToCart} />}></Route>
           <Route path="/login" element={<LoginPage/>}></Route>
           <Route path="/signup" element={<SignUpPage/>}></Route>
           <Route path="/forgotpassword" element={<ForgotPasswordPage/>}></Route>

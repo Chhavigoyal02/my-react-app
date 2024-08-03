@@ -3,8 +3,8 @@ import {useParams,Link} from 'react-router-dom';
 import {getProductData} from './api.js';
 import Loading from './Loading.jsx';
 import { GrPrevious, GrNext } from "react-icons/gr";
-import NotFound from './NotFound.jsx';
-import HomePageArrow from './HomePageArrow.jsx';
+import NotFound from './NotFound';
+import HomePageArrow from './HomePageArrow';
 
 function ProductDetail({onAddToCart}){
   const id=+(useParams().id);
@@ -55,14 +55,14 @@ function ProductDetail({onAddToCart}){
        <HomePageArrow/>
     <div className="bg-gray-200 px-4 sm:px-24  ">
       <div className="h-full bg-white flex flex-col sm:flex-row px-4 sm:px-8 py-8 gap-3  h-full relative">
-          <img className="w-full sm:w-6/12 object-cover" src={product.thumbnail}  alt={product.category}/>
+          <img className="w-full sm:w-6/12 object-cover" src={product.image}  alt={product.category}/>
           <div className="px-4 sm:px-8 flex flex-col ">
               <h1 className="text-3xl text-gray-800">{product.title}</h1>
-            {(product.discountPercentage>10) ? 
+            {(product.discount>10) ? 
             (<div className="flex gap-2 items-center">
-              <h2 className="mt-4 text-xl text-primary-light line-through decoration-black">${((product.price*100)/(100-product.discountPercentage)).toFixed(2)}</h2>
+              <h2 className="mt-4 text-xl text-primary-light line-through decoration-black">${((product.price*100)/(100-product.discount)).toFixed(2)}</h2>
               <h2 className=" mt-4 text-xl text-primary-dark">${product.price} </h2>
-              <h2 className="flex flex-col items-center bg-primary-default text-white rounded-full px-2 py-3 absolute -top-5 -left-4 animate-pulse">{product.discountPercentage}%<span> OFF</span></h2>
+              <h2 className="flex flex-col items-center bg-primary-default text-white rounded-full px-2 py-3 absolute -top-5 -left-4 animate-pulse">{product.discount}%<span> OFF</span></h2>
             </div>):
             (<h2 className=" mt-4 text-xl text-primary-dark">${product.price}</h2>)}
               <p className="mt-4 text-base">{product.description}</p>
@@ -78,8 +78,8 @@ function ProductDetail({onAddToCart}){
     </div>
     
     <div className="flex justify-between mt-4">
-      <div className="ml-4 sm:ml-28 mb-8">{id>1 && (<Link to={"/Product/"+(id-1)} ><GrPrevious className="text-3xl "/>Previous</Link>)}</div>
-      <div className="mr-4 sm:mr-28 mb-8"><Link to={"/Product/"+(id+1)} ><GrNext className="text-3xl"/>Next</Link></div>
+      <div className="ml-4 sm:ml-28 mb-8">{id>1 && (<Link to={"/products/"+(id-1)} ><GrPrevious className="text-3xl "/>Previous</Link>)}</div>
+      <div className="mr-4 sm:mr-28 mb-8"><Link to={"/products/"+(id+1)} ><GrNext className="text-3xl"/>Next</Link></div>
     </div>
     </>
   );
