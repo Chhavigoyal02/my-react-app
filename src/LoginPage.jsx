@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import HomePageArrow from './HomePageArrow.jsx';
 import * as Yup from 'yup';
-import Input from './Input';
+import FormikInput from './FormikInput';
 
 const LoginPage = () => {
   const schema = Yup.object().shape({
@@ -35,7 +35,7 @@ const LoginPage = () => {
               <div className="flex justify-center mb-6">
                 <h1 className="text-3xl font-semibold text-primary-default">Welcome Back</h1>
               </div>
-              <Input
+              <FormikInput
                 label="Email"
                 id="email"
                 name="email"
@@ -44,7 +44,7 @@ const LoginPage = () => {
                 autoComplete="email"
                 required
               />
-              <Input
+              <FormikInput
                 label="Password"
                 id="password"
                 name="password"

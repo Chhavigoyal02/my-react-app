@@ -18,8 +18,8 @@ function Product({id,title,price,category,image,discount}){
         <CiStar className="text-primary-default"/>
         <CiStar className="text-primary-default"/>
       </div>
-      <p className="text-sm font-semibold text-slate-600 mt-2 mb-3">${price}</p>
-      <Link to={"products/"+id} className="teext-base text-primary-default hover:text-lg hover:shadow-xl">View Detail</Link>
+      <p className="text-sm font-semibold text-slate-600 mt-2 mb-3">${price}.00</p>
+      <Link to={"products/"+id} className="text-base bg-primary-default text-white px-2 p-1 hover:text-lg hover:shadow-xl">View Detail</Link>
     </div>
 
   );
