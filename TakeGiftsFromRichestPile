@@ -1,0 +1,14 @@
+class Solution {
+    public long pickGifts(int[] gifts, int k) {
+        int n=gifts.length;
+        for(int i=1;i<=k;i++){
+            Arrays.sort(gifts);
+            gifts[n-1]=(int)Math.floor(Math.sqrt(gifts[n-1]));
+        }
+        long tot=0;
+        for(int i=0;i<n;i++){
+            tot+=gifts[i];
+        }
+        return tot;
+    }
+}
